@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   const { push } = useRouter()
   useEffect(() => {
     async function Fetch() {
-      await Axios.post("http://localhost:3000/api/create", {
+      await Axios.post("https://short-n.vercel.app/api/create", {
         id: urlId,
         url: URLValue
     })}
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
   }
 
   const CopyToClipboard = () => {
-    window.navigator.clipboard.writeText(`https://shortn.vercel.app/${urlId}`)
+    window.navigator.clipboard.writeText(`https://short-n.vercel.app/${urlId}`)
   }
   
   const ScrollDown = () => {
@@ -37,15 +37,15 @@ const Home: NextPage = () => {
   <Header scroll={ScrollDown} />
   <div className="from-purple-600 flex flex-col select-none justify-center items-center bg-gradient-to-b h-[calc(100vh-4rem)] w-full">
     <h1 className='text-6xl text-center text-white md:text-8xl font-extrabold'>ShortN</h1>
-    <h1 className='text-3xl text-center text-white md:text-6xl font-extrabold'>Don't share huge URLs anymore!</h1>
+    <h1 className='text-3xl text-center text-white md:text-6xl font-extrabold'>Don&apos;t share huge URLs anymore!</h1>
     <div className="mt-8">
       <button onClick={ScrollDown} className='h-14 active:bg-gray-400 px-6 mr-3 rounded font-bold transition hover:opacity-80 bg-white'>Get Started</button>
       <button onClick={() => push("https://github.com/marvelxcodes")} className='h-14 px-6 active:bg-purple-900 ml-3 rounded font-bold transition hover:opacity-80 bg-purple-600 text-white'>Whoami</button>
     </div>
   </div>
   <div ref={FormRef} className="h-screen w-full flex items-center justify-center">
-    <div className="flex flex-col outline-purple-600 outline-1 outline rounded-lg items-center justify-center mx-14 md:w-5/6 h-3/6 shadow-2xl">
-      <h1 className='mb-8 font-extrabold text-purple-600 text-center text-3xl'>Shorten your Links!</h1>
+    <div className="flex flex-col outline-purple-600 outline-1 outline rounded-lg items-center justify-center md:m-14 w-10/12 md:w-5/6 h-3/6 shadow-2xl">
+      <h1 className='mb-8 font-extrabold text-purple-600 text-center px-3 text-3xl'>Shorten your Links!</h1>
       <form onSubmit={E=>{E.preventDefault();Shorten()}} className="flex w-5/6 md:flex-row flex-col items-center justify-center mb-5">
         <input ref={URLInputRef} type="text" placeholder='Enter a URL...' className='active:opacity-80 overflex-hidden font-medium outline-none border-none rounded-l py-3 px-6 w-full max-w-[340px] bg-gray-200' />
         <button onClick={Shorten} className='bg-purple-600 md:m-0 mt-5 transition hover:opacity-80 select-none active:bg-purple-800 text-white font-bold px-6 py-3 rounded-r'>Shorten</button>

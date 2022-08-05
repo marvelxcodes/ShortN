@@ -3,7 +3,7 @@ import { GetServerSidePropsContext } from "next"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 
-export default ({url}:any) => {
+export default function Redirect({url}:any) {
   const { push } = useRouter()
   useEffect(() => {
     if (url) {
